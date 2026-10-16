@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Novo Herói - Guilda</title>
+</head>
+<body>
+    <h1>Recrutar Novo Personagem</h1>
+    
+    <form th:action="@{/guilda/salvar}" th:object="${personagem}" method="post">
+        
+        <div>
+            <label>Nome:</label>
+            <input type="text" th:field="*{nome}" />
+            <span style="color: red;" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></span>
+        </div>
+
+        <div>
+            <label>Nível:</label>
+            <input type="number" th:field="*{nivel}" />
+            <span style="color: red;" th:if="${#fields.hasErrors('nivel')}" th:errors="*{nivel}"></span>
+        </div>
+
+        <div>
+            <label>Classe:</label>
+            <select th:field="*{classe}">
+                <option value="GUERREIRO">Guerreiro</option>
+                <option value="MAGO">Mago</option>
+                <option value="ARQUEIRO">Arqueiro</option>
+                <option value="CURANDEIRO">Curandeiro</option>
+            </select>
+        </div>
+
+        <br>
+        <button type="submit">Cadastrar Herói</button>
+    </form>
+    <br>
+    <a href="/guilda">Voltar para o Mural</a>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Mural da Guilda</title>
+</head>
+<body>
+    <h1>Heróis Registrados na Guilda</h1>
+    <a href="/guilda/novo">Recrutar Novo Herói</a>
+    <br><br>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Classe</th>
+                <th>Nível</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="p : ${personagens}">
+                <td th:text="${p.id}"></td>
+                <td th:text="${p.nome}"></td>
+                <td th:text="${p.classe}"></td>
+                <td th:text="${p.nivel}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
